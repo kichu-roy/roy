@@ -297,5 +297,5 @@ This project is free to use and customize. You can modify and distribute it as n
 
 ---
 
-**Last Updated**: March 2024
+**Last Updated**: March 2026
 **Built with**: HTML5, CSS3, GitHub Pages, GitHub Actions

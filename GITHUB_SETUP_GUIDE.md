@@ -310,4 +310,4 @@ Your resume website is now:
 
 **Questions?** Check the troubleshooting section or visit GitHub Docs.
 
-**Last Updated**: March 2024
+**Last Updated**: March 2026
