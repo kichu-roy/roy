@@ -16,15 +16,18 @@
       }
 
       :root {
-        --primary-color: #2c3e50;
-        --secondary-color: #3498db;
-        --accent-color: #e74c3c;
-        --light-bg: #ecf0f1;
-        --text-color: #2c3e50;
-        --light-text: #7f8c8d;
-        --border-color: #bdc3c7;
+        --primary-color: #0f3460;
+        --secondary-color: #d4af37;
+        --accent-color: #1a5f7a;
+        --light-bg: #f5f5f5;
+        --text-color: #1a1a1a;
+        --light-text: #666666;
+        --border-color: #cccccc;
         --success: #27ae60;
         --warning: #f39c12;
+        --off-white: #f9f9f9;
+        --navy-dark: #0a1f2e;
+        --gold: #d4af37;
       }
 
       body {
@@ -32,17 +35,48 @@
           "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
         line-height: 1.6;
         color: var(--text-color);
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          #0f3460 0%,
+          #1a5f7a 50%,
+          #2d7a8f 100%
+        );
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        transition: background 0.3s ease;
+      }
+
+      body.dark-mode {
+        background: linear-gradient(
+          135deg,
+          #0a1f2e 0%,
+          #1a3a52 50%,
+          #2d5f7a 100%
+        );
+        color: #e8e8e8;
       }
 
       .container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        margin: 0;
+        background: var(--off-white);
+        border-radius: 0;
+        box-shadow: none;
         overflow: hidden;
+      }
+
+      body.dark-mode .container {
+        background: #1a1a1a;
+        color: #e8e8e8;
+      }
+
+      body.dark-mode .job-description li {
+        color: #d0d0d0;
+      }
+
+      body.dark-mode .contact-info a {
+        color: var(--secondary-color);
       }
 
       /* Header Section */
@@ -50,11 +84,32 @@
         background: linear-gradient(
           135deg,
           var(--primary-color) 0%,
-          var(--secondary-color) 100%
+          var(--accent-color) 100%
         );
         color: white;
-        padding: 50px 40px;
+        padding: 60px 40px;
         text-align: center;
+        position: relative;
+      }
+
+      .dark-mode-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode-toggle:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
       }
 
       .header h1 {
@@ -66,7 +121,7 @@
 
       .header .title {
         font-size: 1.3em;
-        color: #ecf0f1;
+        color: var(--secondary-color);
         margin-bottom: 20px;
         font-weight: 300;
       }
@@ -91,18 +146,43 @@
       }
 
       .contact-info a {
-        color: #ecf0f1;
-        text-decoration: none;
+        color: var(--secondary-color);
+        text-decoration: underline;
         transition: color 0.3s ease;
+        font-weight: 500;
       }
 
       .contact-info a:hover {
-        color: #f1c40f;
+        color: #ffffff;
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+      }
+
+      a {
+        color: var(--secondary-color);
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      body.dark-mode a {
+        color: #d4af37;
+      }
+
+      body.dark-mode a:hover {
+        color: #e8c54c;
       }
 
       /* Main Content */
       .content {
         padding: 40px;
+        max-width: 100%;
+      }
+
+      body.dark-mode .content {
+        background: #1a1a1a;
       }
 
       /* Profile Summary */
@@ -121,11 +201,16 @@
         font-weight: 600;
       }
 
+      body.dark-mode .section-title {
+        color: var(--secondary-color);
+        border-bottom-color: #8b8b3d;
+      }
+
       .profile-summary {
         background: linear-gradient(
           135deg,
-          rgba(52, 152, 219, 0.1) 0%,
-          rgba(46, 204, 113, 0.1) 100%
+          rgba(212, 175, 55, 0.05) 0%,
+          rgba(26, 95, 122, 0.05) 100%
         );
         padding: 20px;
         border-left: 4px solid var(--secondary-color);
@@ -133,6 +218,15 @@
         font-size: 1em;
         line-height: 1.8;
         color: var(--text-color);
+      }
+
+      body.dark-mode .profile-summary {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.1) 0%,
+          rgba(26, 95, 122, 0.1) 100%
+        );
+        color: #e8e8e8;
       }
 
       /* Experience Section */
@@ -167,6 +261,11 @@
         font-weight: 600;
       }
 
+      body.dark-mode .job-title,
+      body.dark-mode .company {
+        color: var(--secondary-color);
+      }
+
       .job-date {
         background: var(--light-bg);
         padding: 5px 12px;
@@ -176,14 +275,27 @@
         font-weight: 500;
       }
 
+      body.dark-mode .job-date {
+        background: rgba(212, 175, 55, 0.1);
+        color: #d4af37;
+      }
+
       .job-location {
         color: var(--light-text);
         font-size: 0.9em;
         font-style: italic;
       }
 
+      body.dark-mode .job-location {
+        color: #999;
+      }
+
       .job-description {
         margin-top: 15px;
+      }
+
+      body.dark-mode .job-description li {
+        color: #d0d0d0;
       }
 
       .job-description ul {
@@ -199,12 +311,21 @@
       .highlight {
         background: linear-gradient(
           120deg,
-          rgba(231, 76, 60, 0.1) 0%,
-          rgba(52, 152, 219, 0.1) 100%
+          rgba(212, 175, 55, 0.15) 0%,
+          rgba(26, 95, 122, 0.15) 100%
         );
         padding: 2px 6px;
         border-radius: 3px;
         font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      body.dark-mode .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(212, 175, 55, 0.2) 0%,
+          rgba(26, 95, 122, 0.2) 100%
+        );
         color: var(--secondary-color);
       }
 
@@ -222,11 +343,20 @@
         border-top: 4px solid var(--secondary-color);
       }
 
+      body.dark-mode .skill-category {
+        background: #2a2a2a;
+        border-top-color: #8b8b3d;
+      }
+
       .skill-category h3 {
         color: var(--primary-color);
         margin-bottom: 12px;
         font-size: 1.1em;
         font-weight: 600;
+      }
+
+      body.dark-mode .skill-category h3 {
+        color: var(--secondary-color);
       }
 
       .skills-list {
@@ -237,7 +367,7 @@
 
       .skill-tag {
         background: white;
-        color: var(--secondary-color);
+        color: var(--primary-color);
         padding: 6px 12px;
         border-radius: 20px;
         font-size: 0.9em;
@@ -246,10 +376,21 @@
         transition: all 0.3s ease;
       }
 
+      body.dark-mode .skill-tag {
+        background: #333333;
+        color: var(--secondary-color);
+        border-color: #8b8b3d;
+      }
+
       .skill-tag:hover {
         background: var(--secondary-color);
         color: white;
         transform: translateY(-2px);
+      }
+
+      body.dark-mode .skill-tag:hover {
+        background: var(--secondary-color);
+        color: #1a1a1a;
       }
 
       /* Education Section */
@@ -257,6 +398,10 @@
         margin-bottom: 25px;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--border-color);
+      }
+
+      body.dark-mode .education-item {
+        border-bottom-color: #444;
       }
 
       .education-item:last-child {
@@ -270,6 +415,10 @@
         margin-bottom: 5px;
       }
 
+      body.dark-mode .degree {
+        color: var(--secondary-color);
+      }
+
       .institution {
         color: var(--secondary-color);
         font-weight: 500;
@@ -281,23 +430,39 @@
         font-size: 0.95em;
       }
 
+      body.dark-mode .education-details {
+        color: #999;
+      }
+
       /* GitHub Section */
       .github-section {
         background: linear-gradient(
           135deg,
-          rgba(0, 0, 0, 0.05) 0%,
-          rgba(52, 152, 219, 0.05) 100%
+          rgba(212, 175, 55, 0.05) 0%,
+          rgba(26, 95, 122, 0.05) 100%
         );
         padding: 25px;
         border-radius: 8px;
-        border-left: 4px solid #333;
+        border-left: 4px solid var(--secondary-color);
         margin-top: 30px;
       }
 
+      body.dark-mode .github-section {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.1) 0%,
+          rgba(26, 95, 122, 0.1) 100%
+        );
+      }
+
       .github-section h3 {
-        color: #333;
+        color: var(--primary-color);
         margin-bottom: 15px;
         font-size: 1.1em;
+      }
+
+      body.dark-mode .github-section h3 {
+        color: var(--secondary-color);
       }
 
       .github-info {
@@ -314,14 +479,13 @@
 
       .github-item a {
         color: var(--secondary-color);
-        text-decoration: none;
+        text-decoration: underline;
         font-weight: 500;
         transition: color 0.3s ease;
       }
 
       .github-item a:hover {
         color: var(--accent-color);
-        text-decoration: underline;
       }
 
       /* Footer */
@@ -333,17 +497,31 @@
         font-size: 0.9em;
       }
 
+      body.dark-mode .footer {
+        background: var(--navy-dark);
+      }
+
       .footer a {
         color: var(--secondary-color);
-        text-decoration: none;
+        text-decoration: underline;
       }
 
       .footer a:hover {
         text-decoration: underline;
+        color: #e8c54c;
       }
 
       /* Responsive Design */
       @media (max-width: 768px) {
+        body {
+          padding: 0;
+        }
+
+        .container {
+          border-radius: 0;
+          max-width: 100%;
+        }
+
         .header {
           padding: 30px 20px;
         }
@@ -354,6 +532,13 @@
 
         .content {
           padding: 20px;
+        }
+
+        .dark-mode-toggle {
+          top: 10px;
+          right: 10px;
+          padding: 8px 10px;
+          font-size: 0.8em;
         }
 
         .job-header {
@@ -371,6 +556,34 @@
 
         .github-info {
           grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header h1 {
+          font-size: 1.5em;
+        }
+
+        .header .title {
+          font-size: 1em;
+        }
+
+        .contact-info {
+          font-size: 0.85em;
+          gap: 8px;
+        }
+
+        .contact-item {
+          gap: 6px;
+        }
+
+        .section-title {
+          font-size: 1.4em;
+        }
+
+        .job-title,
+        .degree {
+          font-size: 1em;
         }
       }
 
@@ -415,6 +628,9 @@
     <div class="container">
       <!-- Header -->
       <div class="header">
+        <button class="dark-mode-toggle" id="darkModeToggle">
+          🌙 Dark Mode
+        </button>
         <h1>Kishore B</h1>
         <p class="title">DevOps Engineer</p>
         <div class="contact-info">
@@ -423,7 +639,18 @@
             <a href="tel:+919966373654">+91-9966373654</a>
           </div>
           <div class="contact-item">
-            <span class="contact-icon">✉️</span>
+            <svg
+              class="contact-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+              style="color: var(--secondary-color)"
+            >
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
             <a href="mailto:rkishore480@gmail.com">rkishore480@gmail.com</a>
           </div>
           <div class="contact-item">
@@ -431,7 +658,18 @@
             <span>Andhra Pradesh, India</span>
           </div>
           <div class="contact-item">
-            <span class="contact-icon">💼</span>
+            <svg
+              class="contact-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+              style="color: var(--secondary-color)"
+            >
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.35 13.5h-2.3V12.3h2.3v4.2zm-1.15-4.8c-.74 0-1.35-.61-1.35-1.35s.61-1.35 1.35-1.35 1.35.61 1.35 1.35-.61 1.35-1.35 1.35zm8.5 4.8h-2.3v-2.1c0-.5-.02-1.14-.7-1.14-.7 0-.81.55-.81 1.11v2.13h-2.3V9.3h2.21v.6h.03c.31-.58.86-1.19 1.77-1.19 1.89 0 2.24 1.24 2.24 2.86v3.93z"
+              />
+            </svg>
             <a
               href="https://www.linkedin.com/in/rajaputrakishore/"
               target="_blank"
@@ -739,5 +977,41 @@
         </p>
       </div>
     </div>
+
+    <script>
+      // Dark Mode Toggle Functionality
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const htmlElement = document.documentElement;
+      const body = document.body;
+
+      // Check if dark mode is saved in localStorage
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      if (isDarkMode) {
+        body.classList.add("dark-mode");
+        darkModeToggle.textContent = "☀️ Light Mode";
+      }
+
+      // Toggle dark mode on button click
+      darkModeToggle.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+        const isNowDarkMode = body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isNowDarkMode);
+        darkModeToggle.textContent = isNowDarkMode
+          ? "☀️ Light Mode"
+          : "🌙 Dark Mode";
+      });
+
+      // Optional: Detect system dark mode preference
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        if (!isDarkMode) {
+          body.classList.add("dark-mode");
+          darkModeToggle.textContent = "☀️ Light Mode";
+          localStorage.setItem("darkMode", true);
+        }
+      }
+    </script>
   </body>
 </html>
