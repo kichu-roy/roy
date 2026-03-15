@@ -16,18 +16,18 @@
       }
 
       :root {
-        --primary-color: #0f3460;
-        --secondary-color: #d4af37;
-        --accent-color: #1a5f7a;
+        --primary-color: #0a1428;
+        --secondary-color: #ffffff;
+        --accent-color: #0066ff;
         --light-bg: #f5f5f5;
         --text-color: #1a1a1a;
         --light-text: #666666;
-        --border-color: #cccccc;
+        --border-color: #dddddd;
         --success: #27ae60;
-        --warning: #f39c12;
-        --off-white: #f9f9f9;
-        --navy-dark: #0a1f2e;
-        --gold: #d4af37;
+        --warning: #ff9500;
+        --off-white: #ffffff;
+        --navy-dark: #0a1428;
+        --blue-bright: #0066ff;
       }
 
       body {
@@ -37,38 +37,40 @@
         color: var(--text-color);
         background: linear-gradient(
           135deg,
-          #0f3460 0%,
-          #1a5f7a 50%,
-          #2d7a8f 100%
+          #ffffff 0%,
+          #f0f0f0 50%,
+          #e8e8e8 100%
         );
         padding: 0;
         margin: 0;
         min-height: 100vh;
-        transition: background 0.3s ease;
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
       }
 
       body.dark-mode {
         background: linear-gradient(
           135deg,
-          #0a1f2e 0%,
-          #1a3a52 50%,
-          #2d5f7a 100%
+          #020817 0%,
+          #0a1428 50%,
+          #0d1b3d 100%
         );
-        color: #e8e8e8;
+        color: #ffffff;
       }
 
       .container {
         max-width: 100%;
         margin: 0;
-        background: var(--off-white);
+        background: #ffffff;
         border-radius: 0;
         box-shadow: none;
         overflow: hidden;
       }
 
       body.dark-mode .container {
-        background: #1a1a1a;
-        color: #e8e8e8;
+        background: #0a0a0a;
+        color: #ffffff;
       }
 
       body.dark-mode .job-description li {
@@ -76,29 +78,30 @@
       }
 
       body.dark-mode .contact-info a {
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       /* Header Section */
       .header {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          var(--accent-color) 100%
-        );
-        color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        color: #1a1a1a;
         padding: 60px 40px;
         text-align: center;
         position: relative;
+      }
+
+      body.dark-mode .header {
+        background: linear-gradient(135deg, #0a1428 0%, #1a2a4e 100%);
+        color: white;
       }
 
       .dark-mode-toggle {
         position: absolute;
         top: 20px;
         right: 20px;
-        background: rgba(255, 255, 255, 0.2);
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        color: white;
+        background: rgba(0, 0, 0, 0.1);
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        color: #1a1a1a;
         padding: 10px 15px;
         border-radius: 25px;
         cursor: pointer;
@@ -108,8 +111,18 @@
       }
 
       .dark-mode-toggle:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.15);
         transform: scale(1.05);
+      }
+
+      body.dark-mode .dark-mode-toggle {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+      }
+
+      body.dark-mode .dark-mode-toggle:hover {
+        background: rgba(255, 255, 255, 0.3);
       }
 
       .header h1 {
@@ -117,13 +130,54 @@
         margin-bottom: 10px;
         font-weight: 700;
         letter-spacing: 2px;
+        color: #1a1a1a;
+      }
+
+      body.dark-mode .header h1 {
+        color: #ffffff;
       }
 
       .header .title {
         font-size: 1.3em;
-        color: var(--secondary-color);
+        color: #1a1a1a;
         margin-bottom: 20px;
-        font-weight: 300;
+        font-weight: 700;
+        text-shadow: none;
+        animation: none;
+      }
+
+      body.dark-mode .header .title {
+        color: #ffffff;
+        text-shadow:
+          0 0 20px rgba(0, 102, 255, 0.4),
+          0 0 40px rgba(0, 102, 255, 0.2);
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 20px rgba(0, 102, 255, 0.4),
+            0 0 40px rgba(0, 102, 255, 0.2);
+        }
+        50% {
+          text-shadow:
+            0 0 30px rgba(0, 102, 255, 0.6),
+            0 0 50px rgba(0, 102, 255, 0.3);
+        }
+      }
+
+      .contact-icon img {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-icon img:hover {
+        transform: scale(1.15);
       }
 
       .contact-info {
@@ -139,50 +193,77 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        color: #1a1a1a;
+      }
+
+      body.dark-mode .contact-item {
+        color: #ffffff;
       }
 
       .contact-icon {
         font-size: 1.2em;
       }
 
+      svg.email-icon,
+      svg.linkedin-icon {
+        color: #0066ff;
+      }
+
+      body.dark-mode svg.email-icon,
+      body.dark-mode svg.linkedin-icon {
+        color: #ffffff;
+      }
+
       .contact-info a {
-        color: var(--secondary-color);
+        color: #0066ff;
         text-decoration: underline;
         transition: color 0.3s ease;
         font-weight: 500;
       }
 
       .contact-info a:hover {
+        color: #0052cc;
+        text-shadow: none;
+      }
+
+      body.dark-mode .contact-info a {
         color: #ffffff;
-        text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+      }
+
+      body.dark-mode .contact-info a:hover {
+        color: #0066ff;
+        text-shadow: 0 0 8px rgba(0, 102, 255, 0.5);
       }
 
       a {
-        color: var(--secondary-color);
+        color: #0066ff;
         text-decoration: underline;
         transition: color 0.3s ease;
       }
 
       a:hover {
-        color: var(--accent-color);
+        color: #0052cc;
       }
 
       body.dark-mode a {
-        color: #d4af37;
+        color: #ffffff;
       }
 
       body.dark-mode a:hover {
-        color: #e8c54c;
+        color: #0066ff;
       }
 
       /* Main Content */
       .content {
         padding: 40px;
         max-width: 100%;
+        background: #ffffff;
+        color: #1a1a1a;
       }
 
       body.dark-mode .content {
-        background: #1a1a1a;
+        background: #0a0a0a;
+        color: #ffffff;
       }
 
       /* Profile Summary */
@@ -192,8 +273,8 @@
 
       .section-title {
         font-size: 1.8em;
-        color: var(--primary-color);
-        border-bottom: 3px solid var(--secondary-color);
+        color: #0a1428;
+        border-bottom: 3px solid #0066ff;
         padding-bottom: 12px;
         margin-bottom: 20px;
         text-transform: uppercase;
@@ -202,31 +283,31 @@
       }
 
       body.dark-mode .section-title {
-        color: var(--secondary-color);
-        border-bottom-color: #8b8b3d;
+        color: #ffffff;
+        border-bottom-color: #0066ff;
       }
 
       .profile-summary {
         background: linear-gradient(
           135deg,
-          rgba(212, 175, 55, 0.05) 0%,
-          rgba(26, 95, 122, 0.05) 100%
+          rgba(0, 102, 255, 0.08) 0%,
+          rgba(0, 102, 255, 0.03) 100%
         );
         padding: 20px;
-        border-left: 4px solid var(--secondary-color);
+        border-left: 4px solid #0066ff;
         border-radius: 5px;
         font-size: 1em;
         line-height: 1.8;
-        color: var(--text-color);
+        color: #1a1a1a;
       }
 
       body.dark-mode .profile-summary {
         background: linear-gradient(
           135deg,
-          rgba(212, 175, 55, 0.1) 0%,
-          rgba(26, 95, 122, 0.1) 100%
+          rgba(0, 102, 255, 0.15) 0%,
+          rgba(0, 102, 255, 0.08) 100%
         );
-        color: #e8e8e8;
+        color: #ffffff;
       }
 
       /* Experience Section */
@@ -251,37 +332,40 @@
 
       .job-title {
         font-size: 1.2em;
-        color: var(--primary-color);
+        color: #1a1a1a;
         font-weight: 600;
       }
 
       .company {
         font-size: 1.1em;
-        color: var(--secondary-color);
+        color: #0066ff;
         font-weight: 600;
       }
 
-      body.dark-mode .job-title,
+      body.dark-mode .job-title {
+        color: #ffffff;
+      }
+
       body.dark-mode .company {
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       .job-date {
-        background: var(--light-bg);
+        background: #f0f0f0;
         padding: 5px 12px;
         border-radius: 20px;
         font-size: 0.9em;
-        color: var(--light-text);
+        color: #666666;
         font-weight: 500;
       }
 
       body.dark-mode .job-date {
-        background: rgba(212, 175, 55, 0.1);
-        color: #d4af37;
+        background: rgba(0, 102, 255, 0.15);
+        color: #ffffff;
       }
 
       .job-location {
-        color: var(--light-text);
+        color: #666666;
         font-size: 0.9em;
         font-style: italic;
       }
@@ -305,28 +389,28 @@
       .job-description li {
         margin-bottom: 10px;
         line-height: 1.7;
-        color: var(--text-color);
+        color: #1a1a1a;
       }
 
       .highlight {
         background: linear-gradient(
           120deg,
-          rgba(212, 175, 55, 0.15) 0%,
-          rgba(26, 95, 122, 0.15) 100%
+          rgba(0, 102, 255, 0.1) 0%,
+          rgba(0, 102, 255, 0.05) 100%
         );
         padding: 2px 6px;
         border-radius: 3px;
         font-weight: 500;
-        color: var(--primary-color);
+        color: #0066ff;
       }
 
       body.dark-mode .highlight {
         background: linear-gradient(
           120deg,
-          rgba(212, 175, 55, 0.2) 0%,
-          rgba(26, 95, 122, 0.2) 100%
+          rgba(0, 102, 255, 0.2) 0%,
+          rgba(0, 102, 255, 0.15) 100%
         );
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       /* Skills Section */
@@ -337,26 +421,26 @@
       }
 
       .skill-category {
-        background: var(--light-bg);
+        background: #f5f5f5;
         padding: 20px;
         border-radius: 8px;
-        border-top: 4px solid var(--secondary-color);
+        border-top: 4px solid #0066ff;
       }
 
       body.dark-mode .skill-category {
-        background: #2a2a2a;
-        border-top-color: #8b8b3d;
+        background: #0f0f1a;
+        border-top-color: #0066ff;
       }
 
       .skill-category h3 {
-        color: var(--primary-color);
+        color: #1a1a1a;
         margin-bottom: 12px;
         font-size: 1.1em;
         font-weight: 600;
       }
 
       body.dark-mode .skill-category h3 {
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       .skills-list {
@@ -366,42 +450,42 @@
       }
 
       .skill-tag {
-        background: white;
-        color: var(--primary-color);
+        background: #ffffff;
+        color: #0066ff;
         padding: 6px 12px;
         border-radius: 20px;
         font-size: 0.9em;
-        border: 1px solid var(--secondary-color);
+        border: 1px solid #0066ff;
         font-weight: 500;
         transition: all 0.3s ease;
       }
 
       body.dark-mode .skill-tag {
-        background: #333333;
-        color: var(--secondary-color);
-        border-color: #8b8b3d;
+        background: #1a1a2e;
+        color: #ffffff;
+        border-color: #0066ff;
       }
 
       .skill-tag:hover {
-        background: var(--secondary-color);
+        background: #0066ff;
         color: white;
         transform: translateY(-2px);
       }
 
       body.dark-mode .skill-tag:hover {
-        background: var(--secondary-color);
-        color: #1a1a1a;
+        background: #0066ff;
+        color: #ffffff;
       }
 
       /* Education Section */
       .education-item {
         margin-bottom: 25px;
         padding-bottom: 20px;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid #dddddd;
       }
 
       body.dark-mode .education-item {
-        border-bottom-color: #444;
+        border-bottom-color: #1a1a2e;
       }
 
       .education-item:last-child {
@@ -410,23 +494,23 @@
 
       .degree {
         font-size: 1.15em;
-        color: var(--primary-color);
+        color: #1a1a1a;
         font-weight: 600;
         margin-bottom: 5px;
       }
 
       body.dark-mode .degree {
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       .institution {
-        color: var(--secondary-color);
+        color: #0066ff;
         font-weight: 500;
         margin-bottom: 5px;
       }
 
       .education-details {
-        color: var(--light-text);
+        color: #666666;
         font-size: 0.95em;
       }
 
@@ -438,31 +522,31 @@
       .github-section {
         background: linear-gradient(
           135deg,
-          rgba(212, 175, 55, 0.05) 0%,
-          rgba(26, 95, 122, 0.05) 100%
+          rgba(0, 102, 255, 0.08) 0%,
+          rgba(0, 102, 255, 0.03) 100%
         );
         padding: 25px;
         border-radius: 8px;
-        border-left: 4px solid var(--secondary-color);
+        border-left: 4px solid #0066ff;
         margin-top: 30px;
       }
 
       body.dark-mode .github-section {
         background: linear-gradient(
           135deg,
-          rgba(212, 175, 55, 0.1) 0%,
-          rgba(26, 95, 122, 0.1) 100%
+          rgba(0, 102, 255, 0.15) 0%,
+          rgba(0, 102, 255, 0.08) 100%
         );
       }
 
       .github-section h3 {
-        color: var(--primary-color);
+        color: #1a1a1a;
         margin-bottom: 15px;
         font-size: 1.1em;
       }
 
       body.dark-mode .github-section h3 {
-        color: var(--secondary-color);
+        color: #ffffff;
       }
 
       .github-info {
@@ -478,37 +562,54 @@
       }
 
       .github-item a {
-        color: var(--secondary-color);
+        color: #0066ff;
         text-decoration: underline;
         font-weight: 500;
         transition: color 0.3s ease;
       }
 
+      body.dark-mode .github-item a {
+        color: #ffffff;
+      }
+
       .github-item a:hover {
-        color: var(--accent-color);
+        color: #0052cc;
+      }
+
+      body.dark-mode .github-item a:hover {
+        color: #0066ff;
       }
 
       /* Footer */
       .footer {
-        background: var(--primary-color);
-        color: white;
+        background: #f0f0f0;
+        color: #1a1a1a;
         text-align: center;
         padding: 20px;
         font-size: 0.9em;
       }
 
       body.dark-mode .footer {
-        background: var(--navy-dark);
+        background: #020817;
+        color: white;
       }
 
       .footer a {
-        color: var(--secondary-color);
+        color: #0066ff;
         text-decoration: underline;
+      }
+
+      body.dark-mode .footer a {
+        color: #ffffff;
       }
 
       .footer a:hover {
         text-decoration: underline;
-        color: #e8c54c;
+        color: #0052cc;
+      }
+
+      body.dark-mode .footer a:hover {
+        color: #0066ff;
       }
 
       /* Responsive Design */
@@ -640,12 +741,11 @@
           </div>
           <div class="contact-item">
             <svg
-              class="contact-icon"
+              class="contact-icon email-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
               fill="currentColor"
-              style="color: var(--secondary-color)"
             >
               <path
                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
@@ -659,12 +759,11 @@
           </div>
           <div class="contact-item">
             <svg
-              class="contact-icon"
+              class="contact-icon linkedin-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
               fill="currentColor"
-              style="color: var(--secondary-color)"
             >
               <path
                 d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.35 13.5h-2.3V12.3h2.3v4.2zm-1.15-4.8c-.74 0-1.35-.61-1.35-1.35s.61-1.35 1.35-1.35 1.35.61 1.35 1.35-.61 1.35-1.35 1.35zm8.5 4.8h-2.3v-2.1c0-.5-.02-1.14-.7-1.14-.7 0-.81.55-.81 1.11v2.13h-2.3V9.3h2.21v.6h.03c.31-.58.86-1.19 1.77-1.19 1.89 0 2.24 1.24 2.24 2.86v3.93z"
