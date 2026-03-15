@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kishore B - DevOps Engineer | CI/CD Automation | Cloud Infrastructure"
+    />
+    <title>Kishore B | DevOps Engineer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-bg: #ecf0f1;
+        --text-color: #2c3e50;
+        --light-text: #7f8c8d;
+        --border-color: #bdc3c7;
+        --success: #27ae60;
+        --warning: #f39c12;
+      }
+
+      body {
+        font-family:
+          "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Header Section */
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 50px 40px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      .header .title {
+        font-size: 1.3em;
+        color: #ecf0f1;
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+        font-size: 0.95em;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-icon {
+        font-size: 1.2em;
+      }
+
+      .contact-info a {
+        color: #ecf0f1;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: #f1c40f;
+      }
+
+      /* Main Content */
+      .content {
+        padding: 40px;
+      }
+
+      /* Profile Summary */
+      .section {
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .profile-summary {
+        background: linear-gradient(
+          135deg,
+          rgba(52, 152, 219, 0.1) 0%,
+          rgba(46, 204, 113, 0.1) 100%
+        );
+        padding: 20px;
+        border-left: 4px solid var(--secondary-color);
+        border-radius: 5px;
+        font-size: 1em;
+        line-height: 1.8;
+        color: var(--text-color);
+      }
+
+      /* Experience Section */
+      .job {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .job:last-child {
+        border-bottom: none;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .job-title {
+        font-size: 1.2em;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .company {
+        font-size: 1.1em;
+        color: var(--secondary-color);
+        font-weight: 600;
+      }
+
+      .job-date {
+        background: var(--light-bg);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        color: var(--light-text);
+        font-weight: 500;
+      }
+
+      .job-location {
+        color: var(--light-text);
+        font-size: 0.9em;
+        font-style: italic;
+      }
+
+      .job-description {
+        margin-top: 15px;
+      }
+
+      .job-description ul {
+        margin-left: 20px;
+      }
+
+      .job-description li {
+        margin-bottom: 10px;
+        line-height: 1.7;
+        color: var(--text-color);
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(231, 76, 60, 0.1) 0%,
+          rgba(52, 152, 219, 0.1) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 500;
+        color: var(--secondary-color);
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .skill-category {
+        background: var(--light-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-top: 4px solid var(--secondary-color);
+      }
+
+      .skill-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 12px;
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        background: white;
+        color: var(--secondary-color);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        border: 1px solid var(--secondary-color);
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        background: var(--secondary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Education Section */
+      .education-item {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .education-item:last-child {
+        border-bottom: none;
+      }
+
+      .degree {
+        font-size: 1.15em;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .institution {
+        color: var(--secondary-color);
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .education-details {
+        color: var(--light-text);
+        font-size: 0.95em;
+      }
+
+      /* GitHub Section */
+      .github-section {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(52, 152, 219, 0.05) 100%
+        );
+        padding: 25px;
+        border-radius: 8px;
+        border-left: 4px solid #333;
+        margin-top: 30px;
+      }
+
+      .github-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+      }
+
+      .github-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .github-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .github-item a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .github-item a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+      }
+
+      .footer a {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header {
+          padding: 30px 20px;
+        }
+
+        .header h1 {
+          font-size: 2em;
+        }
+
+        .content {
+          padding: 20px;
+        }
+
+        .job-header {
+          flex-direction: column;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .github-info {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+          border-radius: 0;
+          max-width: 100%;
+        }
+
+        .skill-tag:hover,
+        .contact-info a:hover,
+        .github-item a:hover {
+          transform: none;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section {
+        animation: fadeIn 0.6s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1>Kishore B</h1>
+        <p class="title">DevOps Engineer</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <a href="tel:+919966373654">+91-9966373654</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <a href="mailto:rkishore480@gmail.com">rkishore480@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Andhra Pradesh, India</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <a
+              href="https://www.linkedin.com/in/rajaputrakishore/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <!-- Profile Summary -->
+        <section class="section">
+          <h2 class="section-title">Profile Summary</h2>
+          <div class="profile-summary">
+            <p>
+              DevOps Engineer with close to 5 years of experience specializing
+              in CI/CD automation, cloud infrastructure, and scalable
+              deployments across Microsoft Azure and AWS environments.
+              Experienced in building and optimizing automated pipelines using
+              Jenkins, Bitbucket Pipelines, and Azure DevOps, along with
+              containerized deployments using Docker and Kubernetes (AKS).
+              Proficient in Infrastructure as Code using Terraform and AWS
+              CloudFormation, with strong expertise in cloud services,
+              monitoring, and release management. Additionally experienced in
+              backend development using .NET and C#, and actively contribute to
+              early-stage solution design and Proof of Concept (POC)
+              implementations to validate architectures and deployment
+              strategies before project initiation.
+            </p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+          <h2 class="section-title">Professional Experience</h2>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="company">Infosys Ltd.</div>
+                <div class="job-title">
+                  Technology Analyst (DevOps Engineer)
+                </div>
+                <div class="job-location">Bangalore, India</div>
+              </div>
+              <div class="job-date">Sep 2021 – Present</div>
+            </div>
+            <div class="job-description">
+              <ul>
+                <li>
+                  Designed and maintained automated
+                  <span class="highlight"
+                    >CI/CD pipelines using Jenkins, Bitbucket Pipelines, and
+                    Azure Pipelines</span
+                  >
+                  to streamline application build, test, and deployment
+                  workflows across development and production environments.
+                </li>
+
+                <li>
+                  Implemented cloud-native deployment solutions using
+                  <span class="highlight"
+                    >AWS Lambda, API Gateway, S3, and CloudFormation</span
+                  >
+                  for scalable backend services and serverless architectures
+                  supporting Node.js applications.
+                </li>
+
+                <li>
+                  Managed and deployed frontend applications using
+                  <span class="highlight"
+                    >Azure Static Web Apps and Azure App Services</span
+                  >, enabling highly available hosting for React.js applications
+                  integrated with cloud services.
+                </li>
+
+                <li>
+                  Provisioned and managed cloud infrastructure using
+                  <span class="highlight"
+                    >AWS EC2, RDS, IAM, and CloudWatch</span
+                  >, ensuring secure access control, monitoring, and optimized
+                  resource utilization.
+                </li>
+
+                <li>
+                  Developed and maintained containerized workloads using
+                  <span class="highlight">Azure Kubernetes Service (AKS)</span>
+                  and managed container images via
+                  <span class="highlight">Azure Container Registry (ACR)</span>
+                  to support scalable microservice deployments.
+                </li>
+
+                <li>
+                  Integrated enterprise messaging and communication services
+                  using
+                  <span class="highlight"
+                    >Azure Service Bus and Azure Communication Services</span
+                  >
+                  to enable asynchronous service communication in distributed
+                  systems.
+                </li>
+
+                <li>
+                  Implemented centralized configuration and secret management
+                  using
+                  <span class="highlight"
+                    >Azure Key Vault and Azure App Configuration</span
+                  >, improving security and environment configuration management
+                  across deployments.
+                </li>
+
+                <li>
+                  Monitored application health and system performance using
+                  <span class="highlight">AWS CloudWatch</span> and Azure
+                  monitoring tools, performing performance analysis and
+                  optimizing API response times and database queries.
+                </li>
+
+                <li>
+                  Automated infrastructure provisioning using
+                  <span class="highlight"
+                    >AWS CloudFormation and Infrastructure-as-Code
+                    practices</span
+                  >, ensuring consistent and repeatable deployments across
+                  environments.
+                </li>
+
+                <li>
+                  Designed and optimized end-to-end
+                  <span class="highlight"
+                    >CI/CD pipelines using Jenkins, Bitbucket Pipelines, and
+                    Azure DevOps Pipelines</span
+                  >
+                  for automated build, test, and deployment of enterprise
+                  applications across multiple environments.
+                </li>
+
+                <li>
+                  Developed and supported backend services using
+                  <span class="highlight">.NET / C#</span>, implementing GraphQL
+                  APIs, Azure Functions, and Service Bus integrations, along
+                  with database schema design and SQL stored procedures for
+                  enterprise applications.
+                </li>
+
+                <li>
+                  Improved system reliability by implementing
+                  <span class="highlight"
+                    >monitoring, API performance testing with JMeter, and unit
+                    testing using XUnit</span
+                  >, optimizing CI/CD workflows and cloud infrastructure across
+                  Agile environments.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+          <h2 class="section-title">Technical Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Cloud Platforms</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Microsoft Azure</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">GCP</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Azure Services</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Function Apps</span>
+                <span class="skill-tag">App Services</span>
+                <span class="skill-tag">AKS</span>
+                <span class="skill-tag">ACR</span>
+                <span class="skill-tag">Key Vault</span>
+                <span class="skill-tag">App Configuration</span>
+                <span class="skill-tag">Service Bus</span>
+                <span class="skill-tag">Static Web Apps</span>
+                <span class="skill-tag">SQL Server</span>
+                <span class="skill-tag">Databricks</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>AWS Services</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Lambda</span>
+                <span class="skill-tag">API Gateway</span>
+                <span class="skill-tag">EC2</span>
+                <span class="skill-tag">S3</span>
+                <span class="skill-tag">RDS</span>
+                <span class="skill-tag">IAM</span>
+                <span class="skill-tag">CloudWatch</span>
+                <span class="skill-tag">CloudFormation</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>CI/CD & DevOps</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Jenkins</span>
+                <span class="skill-tag">Azure Pipelines</span>
+                <span class="skill-tag">Bitbucket Pipelines</span>
+                <span class="skill-tag">GitLab CI</span>
+                <span class="skill-tag">GitHub Actions</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Containerization</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Container Registry</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Infrastructure as Code</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">CloudFormation</span>
+                <span class="skill-tag">ARM Templates</span>
+                <span class="skill-tag">Bicep</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Backend Development</h3>
+              <div class="skills-list">
+                <span class="skill-tag">.NET</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">Node.js</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Databases & Tools</h3>
+              <div class="skills-list">
+                <span class="skill-tag">SQL Server</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Bitbucket</span>
+                <span class="skill-tag">JMeter</span>
+                <span class="skill-tag">XUnit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+
+          <div class="education-item">
+            <div class="degree">B.Tech in Information Technology</div>
+            <div class="institution">
+              SV Colleges (Affiliated to JNTUA), Tirupati
+            </div>
+            <div class="education-details">2017 – 2021 | CGPA: 7.5</div>
+          </div>
+        </section>
+
+        <!-- GitHub Repository Information -->
+        <div class="github-section">
+          <h3>🔗 GitHub Repository</h3>
+          <div class="github-info">
+            <div class="github-item">
+              <span>📚 Repository:</span>
+              <a href="https://github.com/kichu-roy/roy" target="_blank"
+                >github.com/kichu-roy/roy</a
+              >
+            </div>
+            <div class="github-item">
+              <span>🌐 Live Site:</span>
+              <a href="https://kichu-roy.github.io/roy/" target="_blank"
+                >GitHub Pages</a
+              >
+            </div>
+            <div class="github-item">
+              <span>👤 GitHub Profile:</span>
+              <a href="https://github.com/kichu-roy" target="_blank"
+                >@kichu-roy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          &copy; 2024 Kishore B | DevOps Engineer | Built with GitHub Pages &
+          GitHub Actions
+        </p>
+        <p style="margin-top: 10px; font-size: 0.85em">
+          Last Updated: March 2024
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
