@@ -708,8 +708,75 @@
         }
       }
 
-      /* Animations */
-      @keyframes fadeIn {
+      /* Progress Bar */
+      #scrollProgress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0066ff, #00d4ff);
+        width: 0%;
+        z-index: 1001;
+        transition: width 0.1s ease;
+      }
+
+      body.dark-mode #scrollProgress {
+        background: linear-gradient(90deg, #0066ff, #00d4ff);
+      }
+
+      /* Sticky Header */
+      .sticky-header {
+        position: fixed;
+        top: 4px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        color: #1a1a1a;
+        padding: 12px 40px;
+        text-align: center;
+        z-index: 999;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      body.dark-mode .sticky-header {
+        background: linear-gradient(135deg, #0a1428 0%, #1a2a4e 100%);
+        color: white;
+        border-bottom-color: #1a3a52;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .sticky-header.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .sticky-header-content {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .sticky-header-title {
+        font-size: 1.3em;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .sticky-header-subtitle {
+        font-size: 0.9em;
+        color: #0066ff;
+        font-weight: 600;
+      }
+
+      body.dark-mode .sticky-header-subtitle {
+        color: #ffffff;
+      }
         from {
           opacity: 0;
           transform: translateY(20px);
@@ -726,6 +793,17 @@
     </style>
   </head>
   <body>
+    <!-- Progress Bar -->
+    <div id="scrollProgress"></div>
+
+    <!-- Sticky Header -->
+    <div class="sticky-header" id="stickyHeader">
+      <div class="sticky-header-content">
+        <div class="sticky-header-title">Kishore B</div>
+        <div class="sticky-header-subtitle">DevOps Engineer</div>
+      </div>
+    </div>
+
     <div class="container">
       <!-- Header -->
       <div class="header">
@@ -1078,6 +1156,25 @@
     </div>
 
     <script>
+      // Scroll Progress Bar and Sticky Header
+      const scrollProgress = document.getElementById("scrollProgress");
+      const stickyHeader = document.getElementById("stickyHeader");
+
+      window.addEventListener("scroll", function () {
+        // Calculate scroll progress
+        const windowHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + "%";
+
+        // Show/hide sticky header after scrolling past main header (150px)
+        if (window.scrollY > 200) {
+          stickyHeader.classList.add("show");
+        } else {
+          stickyHeader.classList.remove("show");
+        }
+      });
+
       // Dark Mode Toggle Functionality
       const darkModeToggle = document.getElementById("darkModeToggle");
       const htmlElement = document.documentElement;
